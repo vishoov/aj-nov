@@ -1,0 +1,15 @@
+{
+  "name": "intro",
+  "version": "1.0.0",
+  "description": "this is the intro project for the backend devs",
+  "license": "ISC",
+  "author": "Vishoo",
+  "type": "module",
+  "main": "index.js", 
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
