@@ -1,0 +1,20 @@
+ExpressJS
+
+API Design
+
+Expressjs is helping us in defining routes and their handler functions
+
+app.method('/path', handlerFunction)
+
+app = express instance
+method = HTTP method 
+path = the keyword that comes after the domain name 
+handlerFunction = function that handles the working of a route 
+
+express route also provides the information or data that has been recieved from the user
+in the request as an object 
+similarly whatever we need to respond with will also be treated as an object 
+
+Req (request) -> information that we recieve with a request 
+
+Res

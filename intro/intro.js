@@ -9,6 +9,11 @@
 // Req-Res cycles-> where whenever we have to access any data from the server side
 // we send a REQUEST to the server and after gathering the info and doing all the formalities server replies us with a RESPONSE and this whole process is called request-response cycle
 
+//Buy a product
+
+
+
+
 // HTTP Methods -> Request -> purpose in terms of data -> GET, POST, PUT, PATCH, DELETE
 
 //RESTful API -> Representational State Transfer -> this is an API development architecture that follows some principles that help us to create a scalable, flexible and efficient web server for communication between client and data
