@@ -5,11 +5,14 @@
   "license": "ISC",
   "author": "Vishoo",
   "type": "module",
-  "main": "index.js", 
+  "main": "middlewares.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon middlewares.js"
   },
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "morgan": "^1.10.1",
+    "nodemon": "^3.1.11"
   }
 }

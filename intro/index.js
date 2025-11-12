@@ -21,7 +21,13 @@ app.get("/response", (req, res)=>{
     //     message:"JSON Response"
     // })
 
-    res.sendFile(__dirname + '/index.html')
+    //send http status codes 
+    res.status(500).json({
+        message:"Response is here!",
+        status:"success",
+    })
+
+    // res.sendFile(__dirname + '/index.html')
 
 })
 
@@ -66,6 +72,7 @@ app.get("/request", (req, res)=>{
     const route = req.route
     const url = req.url
 
+
     //params and query 
 
     res.send({
@@ -84,10 +91,15 @@ app.get("/request", (req, res)=>{
 
 app.get("/user/:username/:age", (req, res)=>{
     const username = req.params.username;
+    // /user/ABCD/20
     const age = req.params.age
     res.send(`Welcome to the server Mr. ${username}, with age ${age}`)
 })
 
+
+app.get("/newRoute", (req, res)=>{
+    res.status(200).send("This route is working perfectly!")
+})
 
 // Query Parameters
 // searching 
@@ -97,9 +109,14 @@ app.get("/user/:username/:age", (req, res)=>{
 app.get("/search", (req, res)=>{
     const query = req.query.q;
     const name = req.query.name;
+    // /search?q=something
 
     res.send(`You searched for ${query} and name: ${name}`)
 })
+
+
+
+
 
 
 

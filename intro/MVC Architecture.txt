@@ -1,0 +1,54 @@
+MVC Architecture is a fundamental architexture pattern in software development that seperates and application into three interconnected components 
+This pattern enables seperation of business logic, UI logic and input logic 
+
+Model 
+Route (View)
+Controller
+
+MVC -(Model-View-Controller)
+
+
+1. Model -> Data and business logic
+
+The model represents the data layer of the application. It manages the data, logic and rules of application independently of the ui 
+
+Responsibility:
+
+1. Manage the validation of the data
+2. business logic 
+3. Implements rules and regulation 
+
+
+2. View - User interface and presentation 
+
+the view handles everything users see and interact with directely that is ROUTES
+
+it consists of all the routes and what paths do they have, what methods do they have
+
+Responsibility
+1. display the data to users
+2. responds to user requests
+3. takes the requests to the handler functions
+
+3. Controller - Application logic and coordination 
+
+logic where we handle the requests, where we write the handler functions for all the routes 
+
+
+Benefitys of MVC Architecture
+
+1. seperate of concerns
+2. full Controller
+3. MAIN - Scalability 
+
+
+Modular Design 
+
+Modular programming 
+
+Javascript is single threaded 
+
+code on demand using modular programming 
+
+
+along installing mongoDB mongodB compass 
