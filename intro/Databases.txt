@@ -1,0 +1,79 @@
+Databases -> are structured systems for storing, managing and retreiving data efficiently.
+
+categorized based on how they store the data 
+1. Relational (SQL Database)
+2. Non-Relational (NoSQL Databases)
+
+
+Relational DBs store the data in form of tables (rows and columns) Each table represents an entity (users, products, orders, reviews) which is related in terms of structure 
+
+Non Relational DBs store the data in form of JSON like formats (BSON) Each document is independant and can be changed as per usage, there is no strict schema at the database level
+
+this poses security issues -> for that we use Data modelling on the server level 
+
+
+Aspect                  Relational                                  Non-Relational
+
+Data Model             Tabled with fixed rows and columns           Collections containing JSON     
+                                                                    like documents
+
+Schema                  Predefined, rigid schema required           Schema-less, dynamic structure  
+                        before data insertion                       allow data of varying fields
+
+Relationships           JOINS (work on keys)                        No joins no keys etc
+
+Query Lang              SQL (structured query language)             MongoDB Query Language (Javascript)
+
+
+**Scalability           Vertical (increases the server              Horizontal Scaling - creates 
+                        resources)                                  distributed data clusters 
+
+Perfromance             excellent for complex queries               optimized for high                
+                        slower for massive datasets                 speed querying and lesser complex   
+                                                                    query capabilities
+
+Use cases               Banking, finance, Taxation,                 real time analytics, IoT, content
+                        ecommerce, data warehousing                 management, CRMs
+
+
+Cost Effectiveness      Expensive                                   Cost effective 
+
+Two ways of deploying a database 
+1. local database 
+2. cloud database 
+
+
+MONGODB
+
+document-oriented NoSQL database designed for scalability, flexibility, and high performance 
+
+
+Architecture components
+
+1. Document based data model -> storing the data in form of documents 
+2. Data Organization Heirarchy 
+
+Cluster -> is the physical location where the database is created 
+Database -> Top Level container that stores multiple kinds of data that is associated with a particular project or product
+Collections -> groups of related documents, similar to tables in SQL but without a fixed schema 
+Document-> individual data record within collection that is stored in the form of json like document
+Field-> individual data attribute (name, email, password)
+
+
+features
+
+1. Schema-less
+2. Querying and indexing 
+
+indexing means how fast we are able to fetch any data 
+
+3. Aggregation Framework -> its a feature that allows complex data transformations and computations directly within mongoDB
+
+10000 users-> count of male users that are based in different cities of country 
+
+
+How to use mongodb?
+
+1. MongoDB Shell -> CLI of mongodb that helps us in interacting with the database through code
+2. MongoDB Compass -> a graphical user interface 
+3. MongoDB Atlas -> cloud data deployment service 

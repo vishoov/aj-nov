@@ -1,5 +1,5 @@
 import express from 'express'
-const app = express()
+const app = express();
 
 
 const LoggingMiddleware = (req, res, next)=>{
@@ -35,6 +35,8 @@ app.get("/", myLogger, (req, res)=>{
     console.log("Handler function reached!")
     res.status(200).send("Welcome to the middleware root route")
 })
+
+// what is the diff between app.use() and sandwiching middleware function in  a route
 
 
 // ---------------------------------------------------------------------------------
@@ -103,7 +105,7 @@ app.get("/morganUsage", (req, res)=>{
 
 
 //5. Router level middleware for handling routes written in files except for the main file
-
+// Router level middleware is used for modular programming 
 import blogRoutes from "./view/blog.route.js"
 
 

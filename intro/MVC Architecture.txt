@@ -1,4 +1,4 @@
-MVC Architecture is a fundamental architexture pattern in software development that seperates and application into three interconnected components 
+MVC Architecture is a fundamental architecture pattern in software development that seperates and application into three interconnected components 
 This pattern enables seperation of business logic, UI logic and input logic 
 
 Model 
