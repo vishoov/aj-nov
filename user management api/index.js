@@ -1,6 +1,6 @@
 import express from 'express';
 const app = express()
-
+import UserRoutes from "./view/user.view.js"
 app.use(express.json())
 
 
@@ -25,7 +25,7 @@ app.get("/", (req, res)=>{
     res.send("Welcome to the user management api")
 })
 
-
+app.use(UserRoutes)
 //signup, login, reset password, logout, fetch users
 // security 
 // database (cloud DB Atlas)
@@ -44,19 +44,6 @@ app.get("/", (req, res)=>{
 // /users/:id METHOD:DELETE-> delete user
 
 
-
-//signup page
-app.post("/signup", async (req, res)=>{
-    const userData = req.body;
-
-    // users.push(userData);
-    const createdUser = await User.create(userData)
-    //sending the data to the DB
-
-    res.status(201).json({
-        createdUser
-    })
-})
 
 
 //fetch 

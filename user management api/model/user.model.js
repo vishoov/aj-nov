@@ -10,19 +10,27 @@ const userSchema = mongoose.Schema({
     name:{
         //string
         type:String, //this will allow only string to be added in this field 
-        required:true //this will make name to be included mandatorily in every document 
+        required:true, //this will make name to be included mandatorily in every document 
+        trim:true //it removes unecessary spaces from end and beginning
     },
     age:{
         type:Number,
         required:true,  
-        min:18, //minimum allowed value of the number
+        min:[18,"You are too young"], //minimum allowed value of the number
         max:100 //maximum allowed value of the number
 
     },
     email:{
         type:String,
+        index:true, //that will make querying through email faster
         required:true,
-        unique:true, //this will make sure that no duplicated email is used by an user 
+        lowercase:true, //make sure that all the characters that we have entered are converted to lowercase
+        
+        
+        unique:[true, "this is my custom error for duplicate email"], 
+        
+        
+        //this will make sure that no duplicated email is used by an user 
         validate:{
             validator: function(email){
                 // return (email.includes("@") && email.includs(".com"))
@@ -35,7 +43,8 @@ const userSchema = mongoose.Schema({
         type:String,
         required:true,
         minLength:8,
-        maxLength:20
+        maxLength:20,
+        select:false //will make sure that whenever we are fetching any user details, password is not included in that
     },
     role:{
         type:String,
@@ -44,6 +53,10 @@ const userSchema = mongoose.Schema({
         required:true
 
     }
+},
+
+{
+    timestamps:true //logging the data-> it will keep a record of when the data was created and when it was last updated
 })
 
 
