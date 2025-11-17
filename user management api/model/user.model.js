@@ -44,7 +44,8 @@ const userSchema = mongoose.Schema({
         required:true,
         minLength:8,
         maxLength:20,
-        select:false //will make sure that whenever we are fetching any user details, password is not included in that
+        select:false, //will make sure that whenever we are fetching any user details, password is not included in that
+        match:[/^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,16}$/, "Please enter a stronger password"]
     },
     role:{
         type:String,
