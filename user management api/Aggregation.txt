@@ -34,4 +34,24 @@ Key benefits
 
 stages
 
-1. $match -> works same as find() used for filtering data based on conditions 
+1. $match -> works same as find() used for filtering data based on conditions (recommendation: put it as the first or earliest stage )
+
+2. $group -> groups documents by specified fields and applies Aggregation
+
+
+3. $project -> this helps us in controlling which fields to include or exclude and create computed fields 
+
+4. $sort -> sorts the data -> 1 = ascending 
+and -1 = descending 
+
+pagination
+5. $limit -> limit the amount of data that we will be sending in a single query
+
+6. $skip -> will skip the amount of data that we want so that we can send the next series of data 
+
+1-> 1-10
+2 -> 11-20
+3-> 21-30
+
+
+7. $lookup -> finding data in other collections ***
