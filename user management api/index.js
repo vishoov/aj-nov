@@ -2,7 +2,7 @@ import express from 'express';
 const app = express()
 import UserRoutes from "./view/user.view.js"
 app.use(express.json())
-
+import aggregationRoutes from "./view/aggregation.js"
 
 
 //Database connection code
@@ -24,7 +24,7 @@ import User from "./model/user.model.js"
 app.get("/", (req, res)=>{
     res.send("Welcome to the user management api")
 })
-
+app.use(aggregationRoutes)
 app.use(UserRoutes)
 //signup, login, reset password, logout, fetch users
 // security 

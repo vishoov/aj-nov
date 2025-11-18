@@ -2,7 +2,7 @@ import express from 'express';
 import User from '../model/user.model.js';
 const router = express.Router();
 
-
+// CRUD
 
 // CREATE QUERIES
 //signup page
@@ -10,7 +10,7 @@ router.post("/signup", async (req, res)=>{
     const userData = req.body;
 
     // users.push(userData);
-    const createdUser = await User.create(userData)
+    const createdUser = await User.create(userData) //recommended
     
     // const user = new User(userData);
     // await user.save(); //this is the object oriented programming way of creating the data
@@ -109,7 +109,7 @@ router.get("/users/age/:age", async (req, res)=>{
         const users = await User.find(
             {
                 age:{
-                    $ne:age
+                    $lt:age
                 }
             }
         )

@@ -1,0 +1,37 @@
+Aggregation framework is MongoDB's tool to build apis to do reporting, analytics, or complex queries that are hard or impossible with just find 
+
+
+Results derived from my data
+
+Aggregation pipelines 
+
+find count of users of different age groups 
+
+0-10 -> find AND [>0 and <=10]
+10-20   -> find AND >10 <=20
+20-30 -> find AND >20 and <=30
+30-40
+40-50
+50-60 
+
+group the users based on age 
+
+-> output 
+{
+    age-group:0-10 
+    count:10
+}
+
+Model.aggregate() -> inputs an array -> it contains multiple stages that process the data one by one
+
+
+
+Key benefits 
+
+- Efficient Data Processing -> transform and aggregate the data directly within mongoDB 
+- Scalable Analytics -> process large datasets with optimized stages and indexes without worrying about implementation efficiency 
+- Flexible Transformation - we can combine different stages to reshape data and perform complex queries 
+
+stages
+
+1. $match -> works same as find() used for filtering data based on conditions 
