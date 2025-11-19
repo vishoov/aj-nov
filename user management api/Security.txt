@@ -1,0 +1,20 @@
+Node js - REST ful APIs 
+
+Authentication and User Management (Practices)
+
+1. Password Security 
+
+signup -> name, email, age, password 
+
+password -> 'passwordissecret' -> when stored exactly in the DB poses a threat 
+
+solution -> Always Encrypt the password 'fidigidh.4o;y7t4p78hd;h94t97hf:$'6847y45gfigf9t'
+
+package -> bcrypt (hashing the password)
+
+if we try to decrypt an encrypted password using permutation and combination using the best computer in the world, it will take 16 years to decrypt this string 
+
+
+2. API Security 
+
+JWT token based authentication

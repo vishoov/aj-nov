@@ -179,9 +179,17 @@ router.post('/login', async (req, res)=>{
 
         console.log(user)
         //match the password
-        if(user.password !== password){
-            res.status(400).send("Invalid Password")
+        // if(user.password !== password){
+        //     res.status(400).send("Invalid Password")
+        // }
+
+
+        if(!await user.comparePassword(password)){
+            res.status(400).send({
+                message:"Password incorrect"
+            })
         }
+
 
         res.status(200).json({
             message:"User logged in successfully",

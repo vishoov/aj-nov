@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-
+import bcrypt from 'bcrypt'
 //defined the schema 
 //define the fields that are allowed
 //defining rules for each and every field 
@@ -59,6 +59,39 @@ const userSchema = mongoose.Schema({
 {
     timestamps:true //logging the data-> it will keep a record of when the data was created and when it was last updated
 })
+
+//just before document is being saved to the database, we will encyrpt it 
+//document getting saved in the db -> event 
+//this will be a middleware 
+//data validation -> encryption -> saved 
+userSchema.pre('save', async function(next){
+    try{
+        //hashed string 
+        // const salt = "thisisasaltstringthatisveryverysecure"
+        const salt = await bcrypt.genSalt(10);
+        // this will call bcrypt anf use the genSalt method -> that will create a secure salt 
+        // this salt will be add 10 times to the password and mixed
+        const hashedPassword = await bcrypt.hash(this.password, salt);
+        this.password = hashedPassword;
+        next()
+    }
+    catch(err){
+        next(err)
+    }
+})
+
+
+// create a new method to compare password of the user with the encrypted password present in the database
+userSchema.methods.comparePassword = async function(plainPassword){
+    try{
+        return await bcrypt.compare(plainPassword, this.password);
+    }
+    catch(err){
+        console.error("Error: ", err.message);
+        throw err;
+    }
+}
+
 
 
 //model 
