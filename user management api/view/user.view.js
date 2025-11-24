@@ -1,6 +1,8 @@
 import express from 'express';
 import User from '../model/user.model.js';
 const router = express.Router();
+import { createToken, verifyToken } from '../auth/jwt.js';
+import xss from 'xss';
 
 // CRUD
 
@@ -8,6 +10,8 @@ const router = express.Router();
 //signup page
 router.post("/signup", async (req, res)=>{
     const userData = req.body;
+
+    userData = xss(userData)
 
     // users.push(userData);
     const createdUser = await User.create(userData) //recommended
@@ -47,7 +51,7 @@ router.post('/signup_multi', async (req, res)=>{
 // fetch any data form the db
 //conditions!!!
 
-router.get('/all_users', async (req, res)=>{
+router.get('/all_users', verifyToken, async (req, res)=>{
     try{
 
         const users = await User.find();
@@ -191,9 +195,13 @@ router.post('/login', async (req, res)=>{
         }
 
 
+        const token = createToken(user)
+        console.log(token)
+
         res.status(200).json({
             message:"User logged in successfully",
-            user
+            user,
+            token
 
         })
 

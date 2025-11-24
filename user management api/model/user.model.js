@@ -64,6 +64,8 @@ const userSchema = mongoose.Schema({
 //document getting saved in the db -> event 
 //this will be a middleware 
 //data validation -> encryption -> saved 
+
+//targetElement.eventlistenertype('event-name', callbaclFn())
 userSchema.pre('save', async function(next){
     try{
         //hashed string 

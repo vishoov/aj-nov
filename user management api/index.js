@@ -5,9 +5,40 @@ app.use(express.json())
 import aggregationRoutes from "./view/aggregation.js"
 
 
+//enable env variables inside our project
+import dotenv from 'dotenv';
+dotenv.config();
+
 //Database connection code
-const uri = "mongodb+srv://vverma971_db_user:tgnrKMsovewn3rVS@cluster0.xluprhn.mongodb.net/?appName=Cluster0"
+const uri = process.env.MONGO_URI
 //URI -> Uniform Resource Identifier 
+
+//cors implementation
+import cors from 'cors';
+
+const corsOptions = {
+    origin:"http://localhost:5000", //the list of IP addresses that we have allowed
+    methods:["GET","POST"],
+    allowedHeaders:["Content-Type", "Authorization"]
+}
+
+app.use(cors(corsOptions))
+
+
+
+// rate limiting
+import rateLimit from 'express-rate-limit';
+
+const limiter = rateLimit({
+    windowMs:15*60*1000, //miliseconds (15 minutes)
+    max:5, //maximum number of requests
+    message:"Too Many Requests, Please Try Again Later"
+})
+
+
+app.use(limiter)
+
+
 
 
 import mongoose from 'mongoose';
@@ -53,6 +84,18 @@ app.get("/users", (req, res)=>{
     // })
 })
 
+
+
+app.get("/xss-example", (req, res)=>{
+    const userInput = req.query.input;
+
+    const html = `
+    <h1>Xss Example</h1>
+    
+    <p>User Input: ${userInput}`
+
+    res.send(html);
+})
 
 
 

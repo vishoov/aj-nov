@@ -18,3 +18,6 @@ if we try to decrypt an encrypted password using permutation and combination usi
 2. API Security 
 
 JWT token based authentication
+
+
+https://jwt.io/introduction

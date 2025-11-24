@@ -1,0 +1,27 @@
+1. Environment Variables 
+web scrapers -> unsecured API keys -> payment 
+
+implement env variables -> those variables that are hidden from hard coding in the project and are hidden in the .env file
+
+package : dotenv
+
+2. Input sanitization 
+
+Threat: 
+1. Cross Site Scripting (XSS) -> hackers send script to our servers that get executed
+2. SQL/NoSQL Injections -> information -> query 
+
+package: xss
+
+
+3. Server Security -> allow only selected IP addresses to access our server 
+
+package -> cors (Cross Origin Resource Sharing)
+
+
+4. Rate Limiting -> DDoS Attacks -> Distributed Denial of Service 
+
+ip address -> allow only limited number of requests from a specific client in a given time window 
+
+
+package: express-rate-limit
