@@ -1,5 +1,6 @@
 #root {
   max-width: 1280px;
+  width:60vw;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -47,6 +48,7 @@
   padding: 20px;
   flex-direction: column;
   gap: 5px;
+  max-width: 80vw;
 }
 
 .message input{
@@ -61,10 +63,26 @@
   flex-direction: column;
   background-color: grey;
   border-radius: 10px;
+  padding:20px;
+  max-width:80vw
 }
 
-.app-message{
-  font-size: 30px;
-  padding: 5px;
+.sent-message{
+  align-self:flex-end;
+  background-color:rgb(36, 122, 151);
+  color:white;
+  padding:15px;
+  border-radius:10px;
+  word-wrap: break-word;
 
+}
+
+
+.recieved-message{
+  align-self:flex-start;
+  background-color:rgb(0, 0, 0);
+  color:white;
+  padding:15px;
+  border-radius:10px;
+  word-wrap: break-word;
 }

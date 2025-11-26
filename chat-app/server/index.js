@@ -29,9 +29,17 @@ io.on("connection", (socket)=>{
 
     socket.on('message', (data)=>{
         console.log(data.message)
-        io.to(data.reciever).emit("forward", data)
+        io.to(data.reciever).emit("forward", {
+            message:data.message,
+            senderId:data.reciever
+        })
     })
 
+    socket.on("roomjoin", (roomId)=>{
+        socket.join(roomId)
+        //predefined method to let a socket join a specific room (it happens internally by assigning that id to the user)
+        console.log(`a new user joined the room ${roomId}`)
+    })
 
 
 })

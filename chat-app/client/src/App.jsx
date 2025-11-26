@@ -17,7 +17,18 @@ function App() {
     //emitting the message
     const message = e.target[0].value;
     const reciever = e.target[1].value;
+    setMessages((prev)=>[...prev, {
+      message:message,
+      senderId: socketId,
+      isSent:true //sent message
+    }])
     socket.emit('message', {message, reciever})
+  }
+
+  const joinRoom = (e)=>{
+    e.preventDefault();
+    const roomId = e.target[0].value;
+    socket.emit("roomjoin", roomId)
   }
 
   useEffect(()=>{
@@ -29,7 +40,11 @@ function App() {
 
     socket.on("forward", (data)=>{
       console.log(data);
-      setMessages((prev)=>[...prev, data.message])
+      setMessages((prev)=>[...prev, {
+        message:data.message,
+        senderId:data.reciever,
+        isSent:false
+      }])
     })
   }, [])
 
@@ -45,11 +60,17 @@ function App() {
       <button type='submit'>Send Message</button>
     </form>
 
+    <form className='message' onSubmit={joinRoom}>
+      <input type='text' placeholder='Please Enter Room To Join' />
+      <button type='submit'>Join Room</button>
+    </form>
+
+
     <div className='messages'>
       {
-        messages.map((message, index)=>{
-          return <div key={index} className='app-message'>
-            {message}
+        messages.map((msg, index)=>{
+          return <div key={index} className={msg.isSent ? 'sent-message':'recieved-message'} >
+            {msg.message}
             </div>
         })
       }
