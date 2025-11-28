@@ -18,6 +18,18 @@ router.post("/create", async (req, res)=>{
 })
 
 
+router.get("/all", async (req, res)=>{
+    try{
+        const products = await Product.find();
+        res.send({
+            products
+        })
+    }
+    catch(err){
+        res.send(err.message)
+    }
+})
+
 // Create product /createproduct
 // Fetch Product /product
 router.get("/:id", async (req, res) => {

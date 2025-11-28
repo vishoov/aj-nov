@@ -71,6 +71,18 @@ router.post("/login", async (req, res) => {
   
   });
 
+router.get("/all", async (req, res)=>{
+  try{
+    const users = await User.find();
+    res.send({
+      users
+    })
+  }
+  catch(err){
+    res.send(err.message)
+  }
+})
+
 
 router.post("/check", (req, res)=>{
     res.send(req.body.message)
